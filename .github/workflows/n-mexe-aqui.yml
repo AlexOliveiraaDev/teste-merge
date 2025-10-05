@@ -10,3 +10,13 @@ jobs:
         with:
           github-token: ${{ secrets.PAT_TOKEN }}
 
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge
+        uses: KeisukeYamashita/auto-pull-request-merge@v1
+        with:
+          intervalSeconds: 10
+          timeoutSeconds: 30
+          token: ${{ secrets.PAT_TOKEN }}
+
