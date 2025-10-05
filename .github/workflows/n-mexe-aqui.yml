@@ -18,16 +18,14 @@ on:
       - completed
   status: {}
 jobs:
-  add_label:
+  set-labels:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: Add automerge label
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: automerge
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
   automerge:
     runs-on: ubuntu-latest
     permissions:
