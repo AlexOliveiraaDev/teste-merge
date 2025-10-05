@@ -1,17 +1,13 @@
-name: Auto-Merge-PRs
+name: Auto approve
 
-on:
-  pull_request:
-    branches: [ main ]
-    types: [ opened, synchronize, reopened ]
-    
+on: pull_request_target
+
 jobs:
-  merge-branch:
+  auto-approve:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: emiliopedrollo/auto-merge@v1.2.0
+      - uses: hmarr/auto-approve-action@v4
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
-          target_branch: ${{ github.sha }}
+
           
