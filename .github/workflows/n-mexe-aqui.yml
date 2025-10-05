@@ -9,11 +9,11 @@ jobs:
       - uses: hmarr/auto-approve-action@v4
         with:
           github-token: ${{ secrets.PAT_TOKEN }}
+
   auto-merge:
+    needs: auto-approve
     runs-on: ubuntu-latest
     steps:
       - uses: kenhowardpdx/auto-merge-action@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
-
-          
