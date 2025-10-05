@@ -10,13 +10,3 @@ jobs:
         with:
           github-token: ${{ secrets.PAT_TOKEN }}
 
-  auto-merge:
-    needs: auto-approve
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set auto merge
-        uses: paritytech/auto-merge-bot@main
-        with:
-          GITHUB_TOKEN: secrets.PAT_TOKEN
-          MERGE_METHOD: "SQUASH"
-          ALLOW_UNSTABLE: true
